@@ -1,0 +1,291 @@
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.brand img {
+  flex: 0 0 auto;
+  filter: drop-shadow(0 12px 22px rgba(0, 67, 171, 0.16));
+}
+
+.brand span {
+  display: grid;
+  gap: 2px;
+}
+
+.brand strong {
+  color: currentColor;
+  font-size: 1.03rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.brand small {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.012em;
+  line-height: 1.1;
+}
+
+.site-header.is-scrolled .brand small,
+.site-footer .brand small {
+  color: rgba(138, 162, 190, 0.88);
+}
+
+.btn {
+  --btn-bg: transparent;
+  --btn-color: currentColor;
+  --btn-border: transparent;
+  --btn-shadow: none;
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 54px;
+  border: 1px solid var(--btn-border);
+  border-radius: 999px;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  padding: 0 21px 0 24px;
+  font-size: 0.88rem;
+  font-weight: 850;
+  letter-spacing: -0.01em;
+  box-shadow: var(--btn-shadow);
+  transition:
+    transform 360ms var(--ease-out),
+    border-color 360ms var(--ease-out),
+    background 360ms var(--ease-out),
+    color 360ms var(--ease-out),
+    box-shadow 360ms var(--ease-out);
+}
+
+.btn::before {
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.24), transparent 46%);
+  content: "";
+  opacity: 0;
+  transition: opacity 360ms var(--ease-out);
+}
+
+.btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  transition: transform 360ms var(--ease-out);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:hover svg {
+  transform: translateX(2px);
+}
+
+.btn--primary {
+  --btn-bg: #fff;
+  --btn-color: var(--blue-700);
+  --btn-shadow: 0 18px 36px rgba(0, 68, 145, 0.16);
+}
+
+.btn--ghost {
+  --btn-color: #fff;
+  --btn-border: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.btn--light {
+  --btn-bg: #fff;
+  --btn-color: var(--blue-700);
+  --btn-shadow: 0 18px 38px rgba(3, 84, 177, 0.15);
+}
+
+.btn--outline {
+  --btn-color: var(--blue-700);
+  --btn-border: rgba(7, 140, 255, 0.32);
+  margin-top: 34px;
+  min-height: 52px;
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.btn--small {
+  min-height: 43px;
+  padding-inline: 18px 15px;
+  font-size: 0.78rem;
+}
+
+.btn--small svg {
+  width: 17px;
+  height: 17px;
+}
+
+.glass-card {
+  border: 1px solid rgba(255, 255, 255, 0.56);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.93), rgba(237, 248, 255, 0.78)),
+    rgba(255, 255, 255, 0.75);
+  color: var(--ink-800);
+  box-shadow:
+    0 28px 68px rgba(2, 44, 102, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(22px);
+}
+
+.icon-badge,
+.step-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.95), transparent 36%),
+    linear-gradient(145deg, rgba(0, 145, 255, 0.12), rgba(0, 106, 255, 0.04));
+  color: var(--blue-600);
+  box-shadow: inset 0 0 0 1px rgba(7, 140, 255, 0.08);
+}
+
+.icon-badge svg,
+.step-icon svg {
+  width: 29px;
+  height: 29px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.service-card,
+.project-card {
+  border: 1px solid rgba(32, 112, 196, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.9)),
+    #fff;
+  box-shadow: var(--shadow-card);
+}
+
+.service-card {
+  position: relative;
+  min-height: 244px;
+  border-radius: 24px;
+  padding: 30px;
+  overflow: hidden;
+  transition:
+    transform 420ms var(--ease-out),
+    box-shadow 420ms var(--ease-out),
+    border-color 420ms var(--ease-out);
+}
+
+.service-card::after {
+  position: absolute;
+  inset: auto 18px 18px auto;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, var(--blue-500), var(--cyan-300)) border-box;
+  border: 2px solid transparent;
+  content: "";
+}
+
+.service-card h3,
+.project-card h3,
+.process-steps h3 {
+  margin: 22px 0 0;
+  color: var(--ink-950);
+  font-size: 1.1rem;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.service-card p,
+.project-card p,
+.process-steps p {
+  margin: 13px 0 0;
+  color: var(--ink-500);
+  font-size: 0.92rem;
+  line-height: 1.66;
+}
+
+.service-card a {
+  position: absolute;
+  inset: auto 24px 23px auto;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 15px;
+  height: 15px;
+  color: var(--blue-600);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.service-card:hover,
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(8, 141, 255, 0.26);
+  box-shadow: 0 28px 70px rgba(16, 79, 146, 0.16);
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--blue-600);
+  color: #fff;
+  box-shadow: 0 18px 35px rgba(5, 126, 233, 0.28);
+  transform: translateY(-50%);
+  transition:
+    transform 320ms var(--ease-out),
+    background 320ms var(--ease-out);
+}
+
+.carousel-button:hover {
+  background: var(--blue-800);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-button svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+}
+
+.carousel-button--prev {
+  left: -34px;
+}
+
+.carousel-button--next {
+  right: -34px;
+}
