@@ -1,0 +1,156 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -4;
+  background: linear-gradient(108deg, rgba(255, 255, 255, 0.15), transparent 24%), linear-gradient(180deg, transparent 72%, rgba(0, 77, 176, 0.24));
+  content: "";
+}
+
+.hero::after {
+  position: absolute;
+  inset: auto -15% -23%;
+  z-index: -3;
+  height: 48%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.22), transparent 66%);
+  content: "";
+}
+
+.hero__atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.halo {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(24px);
+  opacity: 0.72;
+}
+
+.halo--left {
+  top: 10%;
+  left: -18%;
+  width: 760px;
+  height: 760px;
+  background: radial-gradient(circle, rgba(147, 230, 255, 0.24), transparent 62%);
+}
+
+.halo--right {
+  top: -12%;
+  right: -20%;
+  width: 860px;
+  height: 860px;
+  background: radial-gradient(circle, rgba(11, 93, 216, 0.3), transparent 62%);
+}
+
+.orb {
+  position: absolute;
+  border-radius: 36%;
+  background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.96), rgba(132, 220, 255, 0.62) 36%, rgba(24, 122, 255, 0.34) 68%, rgba(24, 122, 255, 0.08));
+  box-shadow: inset -14px -16px 24px rgba(0, 80, 200, 0.18), 0 22px 48px rgba(0, 85, 180, 0.18);
+  opacity: 0.66;
+  transform: rotate(18deg);
+  animation: floatSoft 10s var(--ease-soft) infinite alternate;
+}
+
+.orb--one { top: 22%; left: 46%; width: 54px; height: 54px; }
+.orb--two { top: 14%; right: 6%; width: 78px; height: 78px; animation-delay: -2.2s; }
+.orb--three { right: 32%; bottom: 8%; width: 56px; height: 56px; opacity: 0.42; animation-delay: -4.4s; }
+
+.code-chip {
+  position: absolute;
+  top: 34%;
+  left: 42%;
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  border: 1px solid rgba(255, 255, 255, 0.27);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 24px 44px rgba(0, 63, 158, 0.2);
+  transform: rotate(-10deg);
+  backdrop-filter: blur(12px);
+}
+
+.depth-cube {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0)), linear-gradient(145deg, rgba(72, 193, 255, 0.5), rgba(23, 89, 226, 0.28));
+  box-shadow: 0 20px 44px rgba(0, 62, 168, 0.2);
+  transform: rotate(23deg);
+}
+
+.depth-cube--left { left: 8%; bottom: 16%; opacity: 0.24; }
+.depth-cube--right { right: 8%; bottom: 28%; opacity: 0.64; }
+
+.product-theater::before {
+  position: absolute;
+  inset: 8% 4% 13% 7%;
+  z-index: -2;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.25), rgba(33, 178, 255, 0.14) 44%, transparent 70%);
+  filter: blur(15px);
+  content: "";
+}
+
+.product-theater::after {
+  position: absolute;
+  inset: auto 14% 3% 13%;
+  z-index: -1;
+  height: 9%;
+  border-radius: 50%;
+  background: rgba(0, 28, 89, 0.26);
+  filter: blur(17px);
+  content: "";
+}
+
+.theater-rings {
+  position: absolute;
+  inset: 6% 0 0 3%;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle at 58% 45%, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 72px);
+  opacity: 0.35;
+  mask-image: radial-gradient(circle, #000 0 54%, transparent 72%);
+}
+
+.cta-card::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.25), transparent 16rem), radial-gradient(circle at 10% 78%, rgba(126, 231, 255, 0.24), transparent 17rem);
+  content: "";
+}
+
+.cta-card::after {
+  position: absolute;
+  right: 6%;
+  bottom: 17%;
+  width: 38%;
+  height: 2px;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.22) 50%, transparent 0);
+  background-size: 22px 2px;
+  content: "";
+  opacity: 0.72;
+  transform: rotate(-7deg);
+}
+
+@keyframes floatSoft {
+  from { transform: translate3d(0, 0, 0) rotate(18deg); }
+  to { transform: translate3d(12px, -18px, 0) rotate(25deg); }
+}
