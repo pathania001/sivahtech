@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contact Sivah Tech to plan a website, product, app, or digital growth project." />
+    <title>Contact | Sivah Tech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <site-header active="contact"></site-header>
+      <main id="top">
+        <section class="page-hero section-blue">
+          <div class="cube cube-a" aria-hidden="true"></div>
+          <div class="cube cube-b" aria-hidden="true"></div>
+          <div class="container page-hero-grid">
+            <div class="page-hero-copy reveal">
+              <p class="eyebrow">Contact Us</p>
+              <h1>Let’s plan your next digital success story.</h1>
+              <p>Tell us what you want to build, improve, or grow. We’ll help shape the right strategy, service mix, and delivery roadmap.</p>
+              <div class="hero-chip-row"><span>Fast Response</span><span>Strategy Call</span><span>Global Team</span></div>
+            </div>
+            <div class="page-visual-card reveal" style="--delay: 120ms">
+              <div class="mini-product-grid" aria-hidden="true"><div class="mini-product-tile"><strong>Email</strong><span>info@sivahtech.co.uk</span></div><div class="mini-product-tile"><strong>Call</strong><span>+44 79007 60991</span></div><div class="mini-product-tile"><strong>Scope</strong><span>Web, app, marketing</span></div><div class="mini-product-tile"><strong>Start</strong><span>Free consultation</span></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section-soft">
+          <div class="container contact-layout">
+            <div class="contact-stack">
+              <div class="content-panel reveal">
+                <p class="section-label">Start a Project</p>
+                <h3>Share a few details and we’ll recommend the best next step.</h3>
+                <p>Whether you need a landing page, full website, SaaS dashboard, mobile app, or growth system, the conversation starts with goals and constraints.</p>
+                <ul class="content-list">
+                  <li>Free consultation for new digital product ideas.</li>
+                  <li>Clear recommendations for scope, priorities, and launch path.</li>
+                  <li>Support for startups, SMEs, and enterprise teams.</li>
+                </ul>
+              </div>
+              <div class="stats-card reveal" style="--delay: 120ms">
+                <div><strong>24h</strong><span>typical first response window</span></div>
+                <div><strong>UK</strong><span>office and global delivery</span></div>
+              </div>
+            </div>
+            <form class="contact-form reveal" aria-label="Project enquiry form">
+              <div class="form-grid">
+                <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name" required /></div>
+                <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required /></div>
+                <div class="field"><label for="company">Company</label><input id="company" name="company" type="text" placeholder="Company name" /></div>
+                <div class="field"><label for="service">Service</label><select id="service" name="service"><option>Web Development</option><option>Mobile App</option><option>UI/UX Design</option><option>E-Commerce</option><option>Digital Marketing</option><option>Support</option></select></div>
+                <div class="field full"><label for="budget">Project Range</label><select id="budget" name="budget"><option>Launch package</option><option>Scale product build</option><option>Growth retainer</option><option>Custom enterprise scope</option></select></div>
+                <div class="field full"><label for="message">Project Details</label><textarea id="message" name="message" placeholder="Tell us about your goals, audience, and timeline." required></textarea></div>
+              </div>
+              <button class="btn btn-primary" type="submit">Send Enquiry <span class="btn-orb" aria-hidden="true"><svg viewBox="0 0 18 18"><path d="M9.7 4.1 14.1 8.5 9.7 12.9l-1-1 2.6-2.6H3.9V7.8h7.4L8.7 5.2l1-1.1Z" /></svg></span></button>
+            </form>
+          </div>
+        </section>
+      </main>
+      <site-footer></site-footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
