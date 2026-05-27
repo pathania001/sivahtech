@@ -70,10 +70,9 @@ const renderSharedComponents = () => {
             <a class="brand" href="index.html">${logoMarkup}</a>
             <p>We are a global digital solutions company helping businesses create, scale and grow through technology and innovation.</p>
             <div class="social-links" aria-label="Social links">
-              <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" /></svg></a>
-              <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M5 8h4v12H5V8Zm2-5a2.2 2.2 0 1 1 0 4.4A2.2 2.2 0 0 1 7 3Zm5 5h3.8v1.7c.6-1 1.8-2 3.7-2 3 0 4.5 2 4.5 5.7V20h-4v-6c0-1.8-.6-2.8-2-2.8-1.5 0-2.1 1.1-2.1 2.8v6H12V8Z" /></svg></a>
-              <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M21 6.7c-.7.3-1.5.5-2.3.6.8-.5 1.4-1.2 1.7-2.2-.8.5-1.7.8-2.6 1a4 4 0 0 0-6.9 3.7 11.4 11.4 0 0 1-8.3-4.2 4 4 0 0 0 1.2 5.4c-.7 0-1.3-.2-1.8-.5 0 2 1.4 3.6 3.2 4-.6.2-1.2.2-1.8.1.5 1.6 2 2.8 3.8 2.8A8.1 8.1 0 0 1 2 19.1 11.4 11.4 0 0 0 8.2 21c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2.1-2.1Z" /></svg></a>
-              <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm5 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm5.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2ZM12 10a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z" /></svg></a>
+              <a href="https://www.facebook.com/SivahTech" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" /></svg></a>
+              <a href="https://in.linkedin.com/company/sivah-tech" aria-label="LinkedIn company"><svg viewBox="0 0 24 24"><path d="M5 8h4v12H5V8Zm2-5a2.2 2.2 0 1 1 0 4.4A2.2 2.2 0 0 1 7 3Zm5 5h3.8v1.7c.6-1 1.8-2 3.7-2 3 0 4.5 2 4.5 5.7V20h-4v-6c0-1.8-.6-2.8-2-2.8-1.5 0-2.1 1.1-2.1 2.8v6H12V8Z" /></svg></a>
+              <a href="https://in.linkedin.com/in/sivah-tech" aria-label="LinkedIn profile"><svg viewBox="0 0 24 24"><path d="M5 8h4v12H5V8Zm2-5a2.2 2.2 0 1 1 0 4.4A2.2 2.2 0 0 1 7 3Zm5 5h3.8v1.7c.6-1 1.8-2 3.7-2 3 0 4.5 2 4.5 5.7V20h-4v-6c0-1.8-.6-2.8-2-2.8-1.5 0-2.1 1.1-2.1 2.8v6H12V8Z" /></svg></a>
             </div>
           </div>
           <div class="footer-col">
@@ -105,8 +104,8 @@ const renderSharedComponents = () => {
           </div>
           <div class="footer-contact">
             <h3>Contact Us</h3>
+            <p><span>Mohali Delivery Hub</span> Plot E, 195, Industrial Area, Sector 74, Sahibzada Ajit Singh Nagar, Mohali, Punjab</p>
             <p><span>UK Office</span> +44 79007 60991<br />info@sivahtech.co.uk</p>
-            <p><span>UK Office</span> +44 79008 45713<br />info@sivahtech.co.uk</p>
           </div>
           <form class="newsletter" aria-label="Newsletter subscription">
             <h3>Subscribe to Newsletter</h3>
@@ -130,6 +129,63 @@ const renderSharedComponents = () => {
 };
 
 renderSharedComponents();
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Sivah Tech",
+  url: "https://sivahtech.com/",
+  email: "info@sivahtech.co.uk",
+  telephone: "+44 79007 60991",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Plot E, 195, Industrial Area, Sector 74",
+    addressLocality: "Sahibzada Ajit Singh Nagar",
+    addressRegion: "Punjab",
+    addressCountry: "IN",
+  },
+  areaServed: ["United States", "United Kingdom", "Australia", "India"],
+  sameAs: [
+    "https://www.facebook.com/SivahTech",
+    "https://in.linkedin.com/in/sivah-tech",
+    "https://in.linkedin.com/company/sivah-tech",
+  ],
+  serviceType: [
+    "Website Development",
+    "SEO",
+    "Mobile App Development",
+    "UI/UX Design",
+    "Shopify Development",
+    "WordPress Development",
+    "Laravel Development",
+    "Next.js Development",
+  ],
+};
+
+const schemaTag = document.createElement("script");
+schemaTag.type = "application/ld+json";
+schemaTag.textContent = JSON.stringify(organizationSchema);
+document.head.appendChild(schemaTag);
+
+const faqDetails = [...document.querySelectorAll(".faq-card details")].slice(0, 12);
+if (faqDetails.length) {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqDetails.map((item) => ({
+      "@type": "Question",
+      name: item.querySelector("summary")?.textContent.trim() || "",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.querySelector("p")?.textContent.trim() || "",
+      },
+    })),
+  };
+  const faqSchemaTag = document.createElement("script");
+  faqSchemaTag.type = "application/ld+json";
+  faqSchemaTag.textContent = JSON.stringify(faqSchema);
+  document.head.appendChild(faqSchemaTag);
+}
 
 const header = document.querySelector("[data-header]");
 const navToggle = document.querySelector("[data-nav-toggle]");
@@ -206,8 +262,11 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-document.querySelectorAll(".newsletter, .contact-form").forEach((form) => form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const input = event.currentTarget.querySelector("input");
-  if (input) input.value = "";
-}));
+document.querySelectorAll(".newsletter, .contact-form").forEach((form) =>
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    event.currentTarget.querySelectorAll("input, textarea").forEach((field) => {
+      field.value = "";
+    });
+  })
+);
