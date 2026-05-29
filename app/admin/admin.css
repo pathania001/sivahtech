@@ -1,0 +1,112 @@
+.admin-shell {
+  min-height: 100vh;
+  background: #f4fbff;
+  color: #071a2d;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  padding: 24px;
+  background: #041b31;
+  color: #fff;
+}
+
+.admin-sidebar a,
+.admin-logout {
+  display: block;
+  width: 100%;
+  margin: 6px 0;
+  padding: 10px 12px;
+  color: rgba(255,255,255,.82);
+  border-radius: 10px;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.admin-sidebar a:hover,
+.admin-logout:hover {
+  background: rgba(255,255,255,.1);
+  color: #fff;
+}
+
+.admin-main {
+  padding: 28px;
+}
+
+.admin-card {
+  padding: 22px;
+  border: 1px solid #dcecf8;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 26px rgba(18, 65, 113, .1);
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.admin-form {
+  display: grid;
+  gap: 12px;
+}
+
+.admin-input,
+.admin-textarea,
+.admin-select {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #d9e9f5;
+  border-radius: 10px;
+  background: #fbfeff;
+  font: inherit;
+}
+
+.admin-textarea {
+  min-height: 140px;
+}
+
+.admin-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 11px;
+  color: #fff;
+  background: linear-gradient(135deg, #10b7ff, #006ee7);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 10px;
+  border-bottom: 1px solid #e0edf7;
+  text-align: left;
+  vertical-align: top;
+}
+
+@media (max-width: 900px) {
+  .admin-layout,
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+}
