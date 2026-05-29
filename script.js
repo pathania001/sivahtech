@@ -3,6 +3,7 @@ const navToggle = document.querySelector("[data-nav-toggle]");
 const navPanel = document.querySelector("[data-nav-panel]");
 const backToTop = document.querySelector(".back-to-top");
 const revealItems = document.querySelectorAll(".reveal");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const setHeaderState = () => {
   const scrolled = window.scrollY > 20;
@@ -83,6 +84,7 @@ document.querySelectorAll(".newsletter, .contact-form, .quick-inquiry-form").for
 );
 
 document.querySelectorAll(".hero-visual, .page-visual-card, .market-map, .seo-growth-card").forEach((element) => {
+  if (prefersReducedMotion) return;
   element.addEventListener("pointermove", (event) => {
     const rect = element.getBoundingClientRect();
     const x = (event.clientX - rect.left) / rect.width - 0.5;
@@ -98,5 +100,34 @@ document.querySelectorAll(".hero-visual, .page-visual-card, .market-map, .seo-gr
     element.style.removeProperty("--tilt-y");
     element.style.removeProperty("--glow-x");
     element.style.removeProperty("--glow-y");
+  });
+});
+
+document.querySelectorAll(".feature-card, .premium-card, .project-card, .industry-card, .experience-step").forEach((card) => {
+  if (prefersReducedMotion) return;
+  card.addEventListener("pointermove", (event) => {
+    const rect = card.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+    card.style.setProperty("--spotlight-x", `${(x * 100).toFixed(1)}%`);
+    card.style.setProperty("--spotlight-y", `${(y * 100).toFixed(1)}%`);
+    card.style.setProperty("--card-tilt-x", `${((0.5 - y) * 3).toFixed(2)}deg`);
+    card.style.setProperty("--card-tilt-y", `${((x - 0.5) * 3).toFixed(2)}deg`);
+  });
+
+  card.addEventListener("pointerleave", () => {
+    card.style.removeProperty("--spotlight-x");
+    card.style.removeProperty("--spotlight-y");
+    card.style.removeProperty("--card-tilt-x");
+    card.style.removeProperty("--card-tilt-y");
+  });
+});
+
+document.querySelectorAll(".hero").forEach((hero) => {
+  if (prefersReducedMotion) return;
+  hero.addEventListener("pointermove", (event) => {
+    const rect = hero.getBoundingClientRect();
+    hero.style.setProperty("--hero-glow-x", `${(((event.clientX - rect.left) / rect.width) * 100).toFixed(1)}%`);
+    hero.style.setProperty("--hero-glow-y", `${(((event.clientY - rect.top) / rect.height) * 100).toFixed(1)}%`);
   });
 });
