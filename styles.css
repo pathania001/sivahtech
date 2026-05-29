@@ -489,6 +489,10 @@ button {
   position: relative;
   min-height: 476px;
   perspective: 1200px;
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transform-style: preserve-3d;
+  transition: transform .28s ease;
+  will-change: transform;
 }
 
 .laptop {
@@ -1952,6 +1956,22 @@ button {
     rgba(255, 255, 255, 0.12);
   box-shadow: 0 28px 56px rgba(0, 38, 118, 0.22);
   backdrop-filter: blur(18px);
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transform-style: preserve-3d;
+  transition: transform .28s ease, box-shadow .28s ease;
+  will-change: transform;
+}
+
+.page-visual-card::after,
+.market-map::after,
+.seo-growth-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--glow-x, 72%) var(--glow-y, 22%), rgba(255,255,255,.13), transparent 34%);
+  opacity: .72;
 }
 
 .mini-dashboard {
@@ -2697,6 +2717,10 @@ button {
     linear-gradient(135deg, #061d35, #031421);
   box-shadow: 0 24px 48px rgba(4, 25, 45, .18);
   overflow: hidden;
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transform-style: preserve-3d;
+  transition: transform .28s ease;
+  will-change: transform;
 }
 
 .market-map::before {
@@ -2924,6 +2948,10 @@ button {
     linear-gradient(135deg, #08b9ff 0%, #0079eb 56%, #0061d6 100%);
   box-shadow: 0 24px 48px rgba(0, 98, 210, .22);
   overflow: hidden;
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transform-style: preserve-3d;
+  transition: transform .28s ease;
+  will-change: transform;
 }
 
 .seo-growth-card svg {
