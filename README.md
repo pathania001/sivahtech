@@ -1,6 +1,6 @@
-# Sivah Tech Website
+# Sivah Tech Enterprise CMS
 
-Responsive static multi-page website based on the Sivah Tech landing page design system.
+Next.js 15+/React/TypeScript web application with a MySQL-backed admin CMS. The public frontend preserves the validated Sivah Tech static design while adding dynamic page overrides, lead capture, blog publishing, media management, SEO settings, and admin workflows.
 
 ## Pages
 
@@ -18,8 +18,61 @@ Responsive static multi-page website based on the Sivah Tech landing page design
 - `terms.html`
 - `privacy.html`
 
-## Local preview
+## Local development
 
 ```bash
-python3 -m http.server 4173
+npm install
+cp .env.example .env
+npm run dev
 ```
+
+## Build
+
+```bash
+npm run typecheck
+npm run build
+```
+
+## Database
+
+Import:
+
+```bash
+mysql "$DATABASE_URL" < database/schema.sql
+```
+
+Tables include:
+
+- users
+- pages
+- services
+- blogs
+- blog_categories
+- faq
+- testimonials
+- team_members
+- case_studies
+- media
+- leads
+- settings
+- seo
+- menus
+- newsletter_subscribers
+
+## Admin
+
+Create the first admin:
+
+```bash
+ADMIN_EMAIL=info@sivahtech.com ADMIN_PASSWORD='StrongPasswordHere' npm run admin:create
+```
+
+Login at:
+
+```text
+/admin/login
+```
+
+## Deployment
+
+See `DEPLOYMENT.md` for Hostinger Web Apps hosting instructions.
