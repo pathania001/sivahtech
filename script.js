@@ -46,6 +46,74 @@ const navItems = [
   ["contact", "Contact", "contact.html"],
 ];
 
+const pageMeta = {
+  "index.html": {
+    title: "Sivah Tech | Global Web Development, SEO & UI/UX Agency",
+    description:
+      "Sivah Tech is a global digital agency for website development, SEO, UI/UX design, mobile apps, Shopify, WordPress, Laravel, Next.js and long-term website maintenance.",
+  },
+  "about.html": {
+    title: "About Sivah Tech | Global Digital Agency Team",
+    description:
+      "Learn about Sivah Tech, a Mohali-based global digital agency serving clients in the USA, UK, Australia and India with web development, SEO, UI/UX and long-term support.",
+  },
+  "services.html": {
+    title: "Website Development, SEO, UI/UX & App Services | Sivah Tech",
+    description:
+      "Explore Sivah Tech services for website development, SEO, website design, mobile app development, UI/UX, branding, Shopify, WordPress and maintenance.",
+  },
+  "work.html": {
+    title: "Work | Sivah Tech Case Studies & Digital Results",
+    description:
+      "Explore Sivah Tech case studies and portfolio highlights across e-commerce, healthcare, dashboards and conversion-focused web development.",
+  },
+  "process.html": {
+    title: "Process | Sivah Tech Digital Delivery Workflow",
+    description:
+      "See the Sivah Tech delivery process for discovery, strategy, UI/UX design, development, SEO checks, launch and long-term growth support.",
+  },
+  "features.html": {
+    title: "Features | Sivah Tech Design Systems & Technology Stack",
+    description:
+      "Explore Sivah Tech platform features, trusted technology stack, dashboard mockups and reusable systems for premium digital product launches.",
+  },
+  "pricing.html": {
+    title: "Pricing | Sivah Tech Website, App & SEO Packages",
+    description:
+      "Review flexible Sivah Tech pricing packages for websites, product builds, SEO growth, maintenance and long-term digital partnerships.",
+  },
+  "blog.html": {
+    title: "Insights | Sivah Tech Web Development, SEO & UX Blog",
+    description:
+      "Read Sivah Tech insights on website development, SEO, UI/UX design, mobile apps, performance optimization and digital growth strategy.",
+  },
+  "contact.html": {
+    title: "Contact Sivah Tech | Mohali Web Development & SEO Agency",
+    description:
+      "Contact Sivah Tech in Mohali, Punjab for website development, SEO, UI/UX design, mobile app development, Shopify, WordPress and website maintenance.",
+  },
+  "faq.html": {
+    title: "FAQ | Sivah Tech Web Development, SEO & Support Questions",
+    description:
+      "Find answers to common questions about Sivah Tech website development, SEO, mobile apps, UI/UX design, pricing, timelines and maintenance support.",
+  },
+  "testimonials.html": {
+    title: "Testimonials | Sivah Tech Client Success Stories",
+    description:
+      "Read client testimonials for Sivah Tech digital products, websites, dashboards, e-commerce platforms and long-term support partnerships.",
+  },
+  "terms.html": {
+    title: "Terms | Sivah Tech",
+    description:
+      "Review Sivah Tech website terms for professional digital project enquiries, website usage, intellectual property and client engagement expectations.",
+  },
+  "privacy.html": {
+    title: "Privacy | Sivah Tech",
+    description:
+      "Read the Sivah Tech privacy policy covering website enquiries, newsletter data, analytics, support communications and responsible data handling.",
+  },
+};
+
 const renderSharedComponents = () => {
   document.querySelectorAll("site-header").forEach((mount) => {
     const active = mount.getAttribute("active") || "";
@@ -153,6 +221,42 @@ const renderSharedComponents = () => {
 
 renderSharedComponents();
 
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
+const currentMeta = pageMeta[currentPage] || pageMeta["index.html"];
+const currentUrl = `${business.url}${currentPage}`;
+
+const upsertMeta = (selector, attributes) => {
+  let element = document.head.querySelector(selector);
+  if (!element) {
+    element = document.createElement("meta");
+    document.head.appendChild(element);
+  }
+  Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
+};
+
+const upsertLink = (selector, attributes) => {
+  let element = document.head.querySelector(selector);
+  if (!element) {
+    element = document.createElement("link");
+    document.head.appendChild(element);
+  }
+  Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
+};
+
+document.title = currentMeta.title;
+document.head.querySelector('meta[name="description"]')?.setAttribute("content", currentMeta.description);
+upsertLink('link[rel="canonical"]', { rel: "canonical", href: currentUrl });
+upsertMeta('meta[property="og:type"]', { property: "og:type", content: currentPage === "blog.html" ? "article" : "website" });
+upsertMeta('meta[property="og:site_name"]', { property: "og:site_name", content: business.name });
+upsertMeta('meta[property="og:title"]', { property: "og:title", content: currentMeta.title });
+upsertMeta('meta[property="og:description"]', { property: "og:description", content: currentMeta.description });
+upsertMeta('meta[property="og:url"]', { property: "og:url", content: currentUrl });
+upsertMeta('meta[property="og:image"]', { property: "og:image", content: `${business.url}logo.svg` });
+upsertMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary" });
+upsertMeta('meta[name="twitter:title"]', { name: "twitter:title", content: currentMeta.title });
+upsertMeta('meta[name="twitter:description"]', { name: "twitter:description", content: currentMeta.description });
+upsertMeta('meta[name="twitter:image"]', { name: "twitter:image", content: `${business.url}logo.svg` });
+
 const renderGlobalLeadSystems = () => {
   const footerAnchor = document.querySelector("site-footer, footer.footer");
   if (footerAnchor && !document.querySelector(".global-consultation")) {
@@ -196,6 +300,11 @@ const renderGlobalLeadSystems = () => {
           <a href="mailto:${business.email}">${business.email}</a>
           <a class="strip-cta" href="contact.html">Start Project</a>
         </aside>
+        <nav class="mobile-contact-bar" aria-label="Mobile contact options">
+          <a href="${business.phoneHref}" aria-label="Call Sivah Tech">Call Us</a>
+          <a href="mailto:${business.email}" aria-label="Email Sivah Tech">Email Us</a>
+          <a href="${business.whatsapp}" aria-label="Message Sivah Tech on WhatsApp">WhatsApp</a>
+        </nav>
         <div class="floating-contact-actions" aria-label="Floating contact actions">
           <a href="${business.whatsapp}" aria-label="Chat on WhatsApp">
             <svg viewBox="0 0 24 24"><path d="M12 3a8.8 8.8 0 0 0-7.6 13.2L3 21l5-1.3A8.8 8.8 0 1 0 12 3Zm0 2a6.8 6.8 0 0 1 5.8 10.3l-.3.5.5 1.9-1.9-.5-.5.3A6.8 6.8 0 0 1 6.2 8.2 6.8 6.8 0 0 1 12 5Zm-2.8 3.5c-.2 0-.6.1-.9.5-.3.4-.9 1-.9 2.3s.9 2.6 1.1 2.8c.1.2 1.8 2.9 4.5 3.9 2.2.9 2.7.7 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.4l-1.7-.8c-.2-.1-.4-.1-.6.2-.2.3-.7.9-.9 1.1-.1.2-.3.2-.6.1-1.5-.7-2.5-1.3-3.5-3-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-.8-1.9c-.2-.5-.4-.5-.6-.5h-.6Z" /></svg>
@@ -212,7 +321,7 @@ const renderGlobalLeadSystems = () => {
 renderGlobalLeadSystems();
 
 const pageName = document.title.split("|")[0].trim() || "Home";
-const pageUrl = `${business.url}${window.location.pathname.split("/").pop() || "index.html"}`;
+const pageUrl = currentUrl;
 const servicesOffered = [
   "Website Development",
   "Website Design",
@@ -298,6 +407,20 @@ const schemaGraph = {
       serviceType: service,
       url: `${business.url}services.html`,
     })),
+    ...(currentPage === "blog.html"
+      ? [
+          {
+            "@type": "BlogPosting",
+            headline: currentMeta.title,
+            description: currentMeta.description,
+            url: currentUrl,
+            image: `${business.url}logo.svg`,
+            author: { "@id": `${business.url}#organization` },
+            publisher: { "@id": `${business.url}#organization` },
+            mainEntityOfPage: currentUrl,
+          },
+        ]
+      : []),
   ],
 };
 

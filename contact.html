@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="preload" href="styles.css" as="style" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -25,7 +26,7 @@
               <div class="hero-chip-row"><span>Fast Response</span><span>Strategy Call</span><span>Global Team</span></div>
             </div>
             <div class="page-visual-card reveal" style="--delay: 120ms">
-              <div class="mini-product-grid" aria-hidden="true"><div class="mini-product-tile"><strong>Email</strong><span>info@sivahtech.com</span></div><div class="mini-product-tile"><strong>Call</strong><span>+91 75082 76752</span></div><div class="mini-product-tile"><strong>Scope</strong><span>Web, app, marketing</span></div><div class="mini-product-tile"><strong>Start</strong><span>Free consultation</span></div></div>
+              <div class="mini-product-grid"><a class="mini-product-tile" href="mailto:info@sivahtech.com"><strong>Email</strong><span>info@sivahtech.com</span></a><a class="mini-product-tile" href="tel:+917508276752"><strong>Call</strong><span>+91 75082 76752</span></a><div class="mini-product-tile"><strong>Scope</strong><span>Web, app, marketing</span></div><div class="mini-product-tile"><strong>Start</strong><span>Free consultation</span></div></div>
             </div>
           </div>
         </section>
@@ -82,6 +83,6 @@
       </main>
       <site-footer></site-footer>
     </div>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>

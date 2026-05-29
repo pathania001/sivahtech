@@ -3235,6 +3235,10 @@ button {
   fill: currentColor;
 }
 
+.mobile-contact-bar {
+  display: none;
+}
+
 @media (max-width: 1050px) {
   .container {
     width: min(calc(100% - 56px), var(--container));
@@ -3523,22 +3527,39 @@ button {
   }
 
   .sticky-contact-strip {
-    left: 16px;
-    right: 16px;
-    bottom: 12px;
-    max-width: none;
-    justify-content: center;
-    transform: none;
-  }
-
-  .sticky-contact-strip span,
-  .sticky-contact-strip a[href^="mailto"] {
     display: none;
   }
 
   .floating-contact-actions {
     right: 16px;
-    bottom: 72px;
+    bottom: 82px;
+  }
+
+  .mobile-contact-bar {
+    position: fixed;
+    left: 14px;
+    right: 14px;
+    bottom: 12px;
+    z-index: 55;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 999px;
+    background: rgba(4, 27, 49, .92);
+    box-shadow: 0 18px 38px rgba(4, 25, 45, .25);
+    backdrop-filter: blur(16px);
+  }
+
+  .mobile-contact-bar a {
+    display: grid;
+    place-items: center;
+    min-height: 42px;
+    color: #fff;
+    background: rgba(255,255,255,.04);
+    font-size: 10px;
+    font-weight: 900;
   }
 
   .trust-grid,
